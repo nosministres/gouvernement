@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("tidyverse", "rvest"),dependencies=TRUE)
+          shell: Rscript {0}
+
       # Runs a single command using the runners shell
       - name: Fetch data
         run: Rscript gouvernement.R
