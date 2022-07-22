@@ -1,7 +1,6 @@
 library("httr")
 library("tidyverse")
 library("rvest")
-library("lubridate")
 
 liste_ministres <- "https://www.gouvernement.fr/composition-du-gouvernement" %>%
   GET() %>%
