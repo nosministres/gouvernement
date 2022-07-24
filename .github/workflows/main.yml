@@ -33,13 +33,5 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages('tidyverse', dependencies=TRUE)
-          install.packages('httr') 
-          install.packages('rvest') 
+          source("scrap.R") 
         shell: Rscript {0}
-
-      # Runs a single command using the runners shell
-      - name: Fetch data
-        run: |
-           source("scrap.R") 
-        shell: Rscript {0}
-
