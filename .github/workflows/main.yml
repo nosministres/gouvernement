@@ -25,14 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@master
+        with: 
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
       - uses: r-lib/actions/setup-r-dependencies@master
         with:
           cache-version: 2
-          r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
           extra-packages: |
             any::tidyverse
-
       - name: Scrap
         run: |
           source("scrap.R") 
